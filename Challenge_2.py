@@ -17,3 +17,25 @@ Requirements:
     Total count of valid numbers.
     Sum, minimum, and maximum values of the list.
 """
+#define empty list to store valid numbers
+storage = []
+
+#define a loop to continuously ask for user input
+while True:
+    user_input = input("Please enter a number (type 'done' to finish): ")
+    #Stop condition to break the loop if user types 'done'
+    if user_input.lower() == "done":
+        break
+    try:
+        num = int(user_input)
+        storage.append(num)
+    #catch ValueError if the input is not a valid integer
+    except ValueError:
+        print("Invalid input. Please enter a valid integer.")
+
+#output the summary of the collected numbers
+print("Entered numbers:", storage)
+print("Total count:", len(storage))
+print("Sum:", sum(storage))
+print("Minimum:", min(storage))
+print("Maximum:", max(storage))
