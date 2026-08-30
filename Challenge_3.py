@@ -23,15 +23,34 @@ Requirements:
     Display the final word counts in a clean, formatted structure.
     Use an if check to handle empty text input gracefully without crashing.
 """
-#define a storage list for every line
-txt = []
+def main():
+    print(raw_text(text_storage()))
 
-print("inter your text below(type '/s' on newline when you done):\n")
-#define a loop to get all the text
-while True:
-    line = input("...")
-    #stop condition
-    if line == "/s":
-        break
-        #store every line in list
-    txt.append(line)
+def text_storage() -> list:
+    #define a storage list for every line
+    txt = []
+
+    print("inter your text below(type '/s' on newline when you done):\n")
+
+    #define a loop to get all the text
+    while True:
+        line = input("...")
+        #stop condition
+        if line == "/s":
+            break
+            #store every line in list
+        txt.append(line)
+
+    return txt
+
+def raw_text(txt):
+    new = []
+    for i in range(len(txt)):
+        for j in txt[i]:
+            if (";" or "," or "." or "?") in txt[i]:
+                new_txt = txt[i].replace((";" or "," or "." or "?"),"")
+                new.append(new_txt)
+    return new
+    
+
+main()
